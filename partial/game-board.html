@@ -1,0 +1,10 @@
+<h2>
+ <span ng-if="game.Idle">Waiting for other players...<br><a ng-href="{{ $state.href('root.game.join', {gameId: game.Id}, {absolute: true}) }}">{{ $state.href("root.game.join", {gameId: game.Id}, {absolute: true}) }}</a></span>
+ <span ng-if="!game.Idle && !game.Winner">Playing with {{game.Users.X.Id == user.Id ? game.Users.O.Name : game.Users.X.Name}}, {{ game.NextSelf ? "your turn" : "opponent's turn" }}</span>
+ <span ng-if="game.Winner">Game over, {{game.Winner.Name}} won! <button type="button" class="btn" ng-click="$state.go('root.game.list')">&larr; go back</button></span>
+</h2>
+<table class="board">
+ <tr ng-repeat="(rk, row) in game.PlayBoard">
+  <td ng-repeat="(ck, cell) in row" ng-click="cross(cell, rk, ck)" ng-class="{winner: cell.mark, active: (cell.active && game.NextSelf), own: (cell.d == game.MySign)}">{{cell.d == "-" ? "" : cell.d}}</td>
+ </tr>
+</table>

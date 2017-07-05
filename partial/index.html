@@ -1,0 +1,13 @@
+<div style="position: fixed; width: 100%; top: 0;" ng-show="error.show" class="error-area-hide">
+ <div style="position: relative; width: 400px; padding: 10px 15px; font-weight: bold; color: #A50000; border: 1px solid #A50000; border-radius: 0px 0 5px 5px; border-top: 0;" class="bg-danger" ng-show="error.error">
+  {{error.error}}
+  <div style="position: absolute; top: 0; right: 0; padding-right: 4px;"><a href="javascript:" ng-click="error.show = !error.show">x</a></div>
+ </div>
+
+ <div style="position: relative; width: 400px; padding: 10px 15px; font-weight: bold; color: #00A500; border: 1px solid #00A500; border-radius: 0px 0 5px 5px; border-top: 0;" class="bg-success" ng-show="error.text">
+  {{error.text}}
+  <div style="position: absolute; top: 0; right: 0; padding-right: 4px;"><a href="javascript:" ng-click="error.show = !error.show">x</a></div>
+ </div>
+</div>
+
+<ui-view />

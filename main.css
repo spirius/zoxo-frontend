@@ -1,0 +1,33 @@
+.error-area-hide {
+  transition: all linear 0.5s;
+}
+.error-area-hide.ng-hide {
+  opacity: 0;
+}
+
+
+.board td {
+    width: 80px;
+    height: 80px;
+    border: 1px solid gray;
+    text-align: center;
+    font-family: monospace;
+    font-size: 50px;
+}
+
+.board td.winner {
+    color: red;
+    text-decoration: line-through;
+}
+
+.board td {
+    cursor: not-allowed;
+}
+
+.board td.active {
+    cursor: pointer;
+}
+
+.board td.own {
+    background-color: #CCFFCC;
+}
