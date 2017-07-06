@@ -14,11 +14,11 @@
 
         this.conf = {}
 
-        this.base = "/test/"
+        this.base = "./"
 
         var responseHandler = function(p, noRedirect) {
             return p.then(function(res) {
-                if (res && res.status == 401 && !noRedirect) {
+                if (res && (res.status == 401 || res.status == 403) && !noRedirect) {
                     return $state.go("root.index");
                 }
 
@@ -94,7 +94,7 @@
                 }
                 return $q.resolve(res);
             }).catch(function(err) {
-                if (err.status == 401) {
+                if (err.status == 401 || err.status == 403) {
                     return $q.resolve(null);
                 } else {
                     return $q.reject(err);
